@@ -4,7 +4,7 @@ describe('Services', function () {
   beforeEach(module('shortly.services'));
 
   afterEach(inject(function ($httpBackend) {
-    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingExpectation(false);
     $httpBackend.verifyNoOutstandingRequest();
   }));
 
@@ -58,7 +58,7 @@ describe('Services', function () {
 
       Links.addOne(github).then(function (resp) {
         expect(resp.status).to.equal(201);
-        expect(resp.data.title).to.equal('Hack Reactor Labs');
+        expect(resp.data.title).to.equal('reactorcore');
       });
 
       $httpBackend.flush();
@@ -67,5 +67,3 @@ describe('Services', function () {
   });
 
 });
-
-
