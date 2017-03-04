@@ -5,6 +5,7 @@ var helpers = require('./helpers.js'); // our custom middleware
 module.exports = function (app, express) {
   app.get('/:code', linksController.navToLink);
 
+  app.get('/api/users/', userController.userExists);
   app.post('/api/users/signin', userController.signin);
   app.post('/api/users/signup', userController.signup);
   app.get('/api/users/signedin', userController.checkAuth);
@@ -19,4 +20,3 @@ module.exports = function (app, express) {
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 };
-

@@ -82,5 +82,21 @@ module.exports = {
           next(error);
         });
     }
+  },
+
+  userExists: function (req, res, next) {
+    var username = req.query.username;
+
+    findUser({username: username})
+      .then(function(user) {
+        if (user) {
+          res.send(200);
+        } else {
+          res.send(404);
+        }
+      })
+      .fail(function(error) {
+        next(error);
+      });
   }
 };
