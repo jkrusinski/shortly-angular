@@ -44,19 +44,42 @@ angular.module('shortly.auth', [])
       });
   };
 
-  $scope.signup = function () {
+  var signup = function(user) {
 
+    Auth.signup(user)
+      .then(function (token) {
+        $window.localStorage.setItem('com.shortly', token);
+        $location.path('/links');
+      })
+      .catch(function (error) {
+        $scope.user = {username: '', password: ''};
+        $scoep.passCheck = '';
+        warn('There was an unexpected error.');
+        console.error(error);
+      });
+  };
 
-    if ($scope.validCreds) {
+  $scope.validateSignup = function () {
+    var validForm = !$scope.message
+      && !!$scope.user.username
+      && !!$scope.user.password
+      && !!$scope.passCheck;
 
-      Auth.signup($scope.user)
-        .then(function (token) {
-          $window.localStorage.setItem('com.shortly', token);
-          $location.path('/links');
-        })
-        .catch(function (error) {
-          console.error(error);
+    if (validForm) {
+
+      Auth.userExists($scope.user.username)
+        .then(function(exists) {
+
+          if (exists) {
+            warn('Username already exists.');
+          } else {
+            warn(false);
+            signup($scope.user);
+          }
         });
+
+    } else {
+      warn('Please fill in all fields.');
     }
   };
 });
