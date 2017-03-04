@@ -7,7 +7,6 @@ angular.module('shortly.auth', [])
 
   $scope.user = {username: '', password: ''};
   $scope.passCheck = '';
-  $scope.validCreds = false;
   $scope.messgae = '';
   $scope.showWarning = false;
 
@@ -34,20 +33,20 @@ angular.module('shortly.auth', [])
   };
 
   $scope.signin = function () {
-    if ($scope.validCreds) {
 
-      Auth.signin($scope.user)
-        .then(function (token) {
-          $window.localStorage.setItem('com.shortly', token);
-          $location.path('/links');
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
+    Auth.signin($scope.user)
+      .then(function (token) {
+        $window.localStorage.setItem('com.shortly', token);
+        $location.path('/links');
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
   };
 
   $scope.signup = function () {
+
+
     if ($scope.validCreds) {
 
       Auth.signup($scope.user)
