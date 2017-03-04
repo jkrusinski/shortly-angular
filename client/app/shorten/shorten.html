@@ -1,6 +1,29 @@
-<div id='container'>
-<!-- Your code here -->
+<div id="container">
 
+    <div class="navigation">
+      <ul>
+        <li><a href="#/links">All Links</a></li>
+        <li><a href="#/shorten" class="selected">Shorten</a></li>
+        <li ng-click="signout()"><a href="#">Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="creator">
+      <form>
+
+        <input class="text {{ inputWarning }}"
+               type="text"
+               ng-model="link.url"
+               ng-disabled="loading"
+               ng-change="validate()"/>
+
+        <button class="button"
+                ng-click="addLink()"
+                ng-disabled="loading">Submit</button>
+
+        <div class="message" ng-show="showWarning">Please enter a valid url</div>
+      </form>
+
+      <img src="/assets/spiffygif_46x46.gif" class="spinner" ng-show="disabled"/>
+    </div>
 </div>
-
-
