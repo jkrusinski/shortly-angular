@@ -1,3 +1,25 @@
-<div id='container'>
-  <!-- Your html here -->
+<div id="container">
+
+  <div class="navigation">
+    <ul>
+      <li><a href="#/links" class="selected">All Links</a></li>
+      <li><a href="#/shorten">Shorten</a></li>
+      <li ng-click="signout()"><a href="#">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="link" ng-repeat="link in data.links track by $index">
+    <img src="/assets/redirect_icon.png" />
+    <div class="info">
+
+      <div class="visits">
+        <span class="count">{{ link.visits }}</span> Visits
+      </div>
+      <div class="title">{{ link.title }}</div>
+      <div class="original">{{ link.url }}</div>
+      <div href="{{ link.baseUrl }}/{{ link.code }}">{{ link.baseUrl }}/{{ link.code }}</div>
+
+    </div>
+  </div>
+
 </div>
