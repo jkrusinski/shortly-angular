@@ -22,11 +22,11 @@ angular.module('shortly.auth', [])
 
   $scope.validateCreds = function () {
     if ($scope.user.username.length < 8 && !!$scope.user.username) {
-      warn('Username must be at least 8 characters long.');
+      warn('username must be at least 8 characters');
     } else if ($scope.user.password.length < 8 && !!$scope.user.password) {
-      warn('Password must be at least 8 characters long.');
+      warn('password must be at least 8 characters');
     } else if ($scope.user.password !== $scope.passCheck && !!$scope.passCheck) {
-      warn('Passwords do not match.');
+      warn('passwords do not match');
     } else {
       warn(false);
     }
@@ -54,7 +54,7 @@ angular.module('shortly.auth', [])
       .catch(function (error) {
         $scope.user = {username: '', password: ''};
         $scoep.passCheck = '';
-        warn('There was an unexpected error.');
+        warn('there was an unexpected error :(');
         console.error(error);
       });
   };
@@ -71,7 +71,7 @@ angular.module('shortly.auth', [])
         .then(function(exists) {
 
           if (exists) {
-            warn('Username already exists.');
+            warn('username already exists');
           } else {
             warn(false);
             signup($scope.user);
@@ -79,7 +79,7 @@ angular.module('shortly.auth', [])
         });
 
     } else {
-      warn('Please fill in all fields.');
+      warn($scope.message);
     }
   };
 });
