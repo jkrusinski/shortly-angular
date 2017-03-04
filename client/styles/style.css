@@ -121,28 +121,43 @@ input[type=url]:focus {
 }
 
 .clean {
-  border: #efe solid 2px;
+  border: grey solid 4px;
   padding: 10px;
   margin: 0 10px;
 }
 
 .creator {
-  height: 50px;
+  padding: 20px;
 }
 
-.creator form {
+.creator input {
   float: left;
-  height: 80px;
+  height: 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.creator input:focus,
+.creator input:active,
+.creator button:focus,
+.creator button:active {
+  outline: none;
+}
+.creator button {
+  float: left;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color:
 }
 
 .creator img.spinner {
-  height: 46px;
-  margin-bottom: 5px;
-  padding: 10px;
-  display: none;
+  height: 40px;
+  margin-left: 5px;
 }
 
 .creator .message {
   clear: both;
+  margin: 10px;
+  color: red;
 }
-
