@@ -28,7 +28,7 @@ angular.module('shortly.services', [])
     addOne: addOne
   };
 })
-.factory('Auth', function ($http, $location, $window) {
+.factory('Auth', function ($http, $location, $window, $timeout) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
   // by exchanging the user's username and password
@@ -58,13 +58,27 @@ angular.module('shortly.services', [])
     });
   };
 
+  var userExists = function(user) {
+    return $http({
+      method: 'GET',
+      url: '/api/users/',
+      params: {
+        username: user
+      }
+    }).then(() => true).catch(() => false);
+  };
+
   var isAuth = function () {
     return !!$window.localStorage.getItem('com.shortly');
   };
 
   var signout = function () {
     $window.localStorage.removeItem('com.shortly');
-    $location.path('#/signin');
+    // extra tick is necessary.
+    // no idea why.
+    $timeout(function() {
+      $location.path('signin');
+    });
   };
 
 
@@ -72,6 +86,7 @@ angular.module('shortly.services', [])
     signin: signin,
     signup: signup,
     isAuth: isAuth,
-    signout: signout
+    signout: signout,
+    userExists: userExists
   };
 });
