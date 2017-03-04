@@ -1,11 +1,20 @@
-<div id="signup">
-  <h1>signup</h1>
+<div id="signup" class="bubble col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+  <h2>signup</h2>
   <form name="signupForm" ng-submit="validateSignup()">
-    <input type="text" ng-model="user.username" ng-change="validateCreds()">
-    <input type="password" ng-model="user.password" ng-change="validateCreds()">
-    <input type="password" ng-model="passCheck" ng-change="validateCreds()">
-    <button>signup</button>
+    <input type="text"
+           ng-model="user.username"
+           ng-change="validateCreds()"
+           placeholder="username">
+    <input type="password"
+           ng-model="user.password"
+           ng-change="validateCreds()"
+           placeholder="password">
+    <input type="password"
+           ng-model="passCheck"
+           ng-change="validateCreds()"
+           placeholder="verify password">
+    <button class="btn btn-default">submit</button>
   </form>
-  <div ng-show="showWarning">{{ message }}</div>
-  <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+  <div class="warning">{{ message }}</div>
+  <a href="#/signin">already have an account?</a>
 </div>
