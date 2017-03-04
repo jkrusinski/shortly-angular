@@ -1,18 +1,99 @@
 body {
   margin: 0;
   margin-top: 10px;
-  font-family: arial, sans-serif;
+  font-family: 'Raleway', arial, sans-serif;
+  background-color: #78AED8;
 }
 
 a {
-  color: #333;
+  color: #4D90C4;
   font-size: 14px;
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #FF4901;
+}
+
 h1 {
-  font-style: italic;
+  font-family: 'Baloo', cursive;
   margin-bottom: 10px;
+  font-size: 5em;
+  text-align: center;
+  color: #FFD65A;
+  text-shadow: 3px 3px 1px #FFA885;
+}
+
+.bubble {
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: #FFE185;
+  box-shadow: 3px 3px 1px #FFA885;
+}
+
+.bubble h2 {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 2.5em;
+  color: #FF4901;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #FFA885;
+}
+
+.bubble form {
+  text-align: center;
+}
+
+
+.bubble input,
+.bubble button {
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  margin: 10px 0;
+  font-size: 1.2em;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #FFA885;
+}
+
+.bubble input {
+  border: solid #FFCC35 1px;
+  color: #084B7E;
+  background-color: #e6f4ff;
+}
+
+.bubble input:active,
+.bubble input:focus {
+  outline: none;
+  border-color: #FF6E35;
+}
+
+.bubble button {
+  font-family: 'Baloo', cursive;
+  color: #FF4901;
+  border: solid #FF6E35 1px;
+  background-color: #FFA885;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #FFA885
+}
+
+.bubble button:hover,
+.bubble button:focus,
+.bubble button:active {
+  color: #FF4901;
+  background-color: #FFCC35;
+  outline: none;
+  border: solid #FFBF01 1px;
+}
+
+.bubble .warning {
+  color: #FF4901;
+  font-weight: bold;
+  font-size: 1.2em;
+  height: 40px;
 }
 
 .navigation {
@@ -46,11 +127,6 @@ h1 {
 
 .navigation li a.selected {
   background-color: #ccc;
-}
-
-#container {
-  clear: both;
-  margin-top: 10px;
 }
 
 .link {
@@ -113,7 +189,6 @@ input[type=url]:focus {
   outline: none;
 }
 
-
 .error {
   border: red solid 4px;
   padding: 10px;
@@ -143,12 +218,13 @@ input[type=url]:focus {
 .creator button:active {
   outline: none;
 }
+
 .creator button {
   float: left;
   height: 40px;
   border-radius: 4px;
   font-size: 16px;
-  background-color:
+  background-color: grey;
 }
 
 .creator img.spinner {
